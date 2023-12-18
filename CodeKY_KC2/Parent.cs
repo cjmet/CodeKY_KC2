@@ -10,18 +10,17 @@ namespace CodeKY_KC2
 {
 	public class Parent
 	{
-		public string parentName { get; set; }
+		public string? parentName { get; set; }
 		public override string ToString() => JsonSerializer.Serialize(this, new JsonSerializerOptions { IncludeFields = true });
 		public virtual void AddName()
 		{
-			string userInput;
+			string? userInput;
 			do
 			{
 				Console.WriteLine("Enter the parent's name: ");
 				userInput = Console.ReadLine();
-				userInput = userInput.Trim();
-			} while (string.IsNullOrEmpty(userInput));
-			parentName = userInput;
+			} while (string.IsNullOrWhiteSpace(userInput));
+			parentName = userInput.Trim();
 		}
 	}
 }
