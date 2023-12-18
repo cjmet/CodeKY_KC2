@@ -13,8 +13,13 @@ namespace CodeKY_KC2
 		public override string ToString() => JsonSerializer.Serialize(this, new JsonSerializerOptions { IncludeFields = true });
 		public override void AddName()
 		{
-			Console.WriteLine("Enter the child's name: ");
-			childName = Console.ReadLine();
+			string userInput;
+			do {
+				Console.WriteLine("Enter the child's name: ");
+				userInput = Console.ReadLine();
+				userInput = userInput.Trim();
+			} while (string.IsNullOrEmpty(userInput));
+			childName = userInput;
 			base.AddName();
 		}
 	}

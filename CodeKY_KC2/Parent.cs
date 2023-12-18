@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -13,8 +14,14 @@ namespace CodeKY_KC2
 		public override string ToString() => JsonSerializer.Serialize(this, new JsonSerializerOptions { IncludeFields = true });
 		public virtual void AddName()
 		{
-			Console.WriteLine("Enter the parent's name: ");
-			parentName = Console.ReadLine();
+			string userInput;
+			do
+			{
+				Console.WriteLine("Enter the parent's name: ");
+				userInput = Console.ReadLine();
+				userInput = userInput.Trim();
+			} while (string.IsNullOrEmpty(userInput));
+			parentName = userInput;
 		}
 	}
 }
