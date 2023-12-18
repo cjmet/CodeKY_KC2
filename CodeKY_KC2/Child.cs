@@ -9,8 +9,13 @@ namespace CodeKY_KC2
 {
 	public class Child : Parent
 	{
-        public string childName { get; set; }
-		public override string ToString() =>  JsonSerializer.Serialize(this, new JsonSerializerOptions { IncludeFields = true });
-		
+		public string childName { get; set; }
+		public override string ToString() => JsonSerializer.Serialize(this, new JsonSerializerOptions { IncludeFields = true });
+		public override void AddName()
+		{
+			Console.WriteLine("Enter the child's name: ");
+			childName = Console.ReadLine();
+			base.AddName();
+		}
 	}
 }

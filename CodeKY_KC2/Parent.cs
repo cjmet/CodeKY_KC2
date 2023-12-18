@@ -11,5 +11,10 @@ namespace CodeKY_KC2
 	{
 		public string parentName { get; set; }
 		public override string ToString() => JsonSerializer.Serialize(this, new JsonSerializerOptions { IncludeFields = true });
+		public virtual void AddName()
+		{
+			Console.WriteLine("Enter the parent's name: ");
+			parentName = Console.ReadLine();
+		}
 	}
 }

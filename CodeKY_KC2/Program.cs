@@ -14,13 +14,7 @@ namespace CodeKY_KC2
 			{
 				// In this loop, populate the object's properties using Console.ReadLine()
 				var child = new Child();
-
-				Console.WriteLine("Enter the child's name: ");
-				child.childName = Console.ReadLine();
-
-				Console.WriteLine("Enter the Parent's name: ");
-				child.parentName = Console.ReadLine();
-
+				child.AddName();
 				recordList.Add(child);
 			}
 
